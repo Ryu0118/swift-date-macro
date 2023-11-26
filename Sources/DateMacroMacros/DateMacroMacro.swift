@@ -16,9 +16,8 @@ public struct DateMacro: ExpressionMacro {
         of node: Node,
         in context: Context
     ) throws -> ExprSyntax {
-        let argumentList = Array(node.argumentList)
-        guard let firstArgument = argumentList.first?.expression.as(StringLiteralExprSyntax.self)?.segments,
-              let secondArgument = argumentList[safe: 1]?.expression.as(StringLiteralExprSyntax.self)?.segments,
+        guard let firstArgument = node.argumentList.first?.expression.as(StringLiteralExprSyntax.self)?.segments,
+              let secondArgument = node.argumentList.last?.expression.as(StringLiteralExprSyntax.self)?.segments,
               case let .stringSegment(dateString) = firstArgument.first,
               case let .stringSegment(dateFormat) = secondArgument.first
         else {
