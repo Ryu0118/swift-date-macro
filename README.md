@@ -1,7 +1,7 @@
 # swift-date-macro
 Macro for converting String to Date safely
 
-# Usage
+## Usage
 ```Swift
 let date = #date("2023/11/27", dateFormat: "yyyy/MM/dd")
 ```
