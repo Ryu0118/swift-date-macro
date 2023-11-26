@@ -5,12 +5,6 @@ import SwiftSyntaxMacros
 import SwiftDiagnostics
 import Foundation
 
-public extension Collection {
-    subscript(safe index: Index) -> Element? {
-        indices.contains(index) ? self[index] : nil
-    }
-}
-
 public struct DateMacro: ExpressionMacro {
     public static func expansion<Node: FreestandingMacroExpansionSyntax, Context: MacroExpansionContext>(
         of node: Node,
